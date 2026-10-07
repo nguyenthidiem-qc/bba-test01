@@ -15,3 +15,7 @@
 5. Sau khi tạo xong sẽ có ssh
 
 6. Chạy lệnh để liên kết project và repo: git remote add origin https://github.com/nguyenthidiem-qc/bba-test01.git
+
+7. commit: git commit -m"message"
+
+8. push lên github: git push origin main
