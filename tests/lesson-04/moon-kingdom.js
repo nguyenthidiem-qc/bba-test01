@@ -10,31 +10,17 @@ tests/lesson-04/moon-kingdom.js */
     - Sử dụng hàm filter để lọc ra các phần tử có chỉ số health > 1000. Đăt tên mảng mới lọc
     được này là "possibleWinners"
 */
-// function createCharacters() {
-//     const characters = [
-//         { name: "HuyR", level: 2, health: 170 },
-//         { name: "Hana", level: 3, health: 370 },
-//         { name: "Mina", level: 2, health: 9770 }];
-//     const UPPERCASE = characters.map((character) => ({
-//         newName: character.name.toUpperCase(),
-//         newLevel: character.level * 2,
-//         newHealth: character.health * 3
-//     }))
-//     //return UPPERCASE;
-//     const possibleWinners = UPPERCASE.filter(health1 => health1.newHealth > 1000);
-//     return possibleWinners;
-// };
-// console.log(createCharacters());
-function createCharacters(){
+
+function createCharacters() {
     const characters = [
-        {name: "Haru", level: 3, health: 178},
-        {name: "Hary", level: 4, health: 578},
-        {name: "Potter", level: 6, health: 778}
+        { name: "Haru", level: 3, health: 178 },
+        { name: "Hary", level: 4, health: 578 },
+        { name: "Potter", level: 6, health: 778 }
     ];
-    const charactersPowerUp = characters.map((characters) => ({
-        newName: characters.name.toUpperCase(),
-        newLevel: characters.level * 2,
-        newHealth: characters.health * 3
+    const charactersPowerUp = characters.map((character) => ({
+        newName: character.name.toUpperCase(),
+        newLevel: character.level * 2,
+        newHealth: character.health * 3
     }));
     const possibleWinners = charactersPowerUp.filter(
         filterHealth => filterHealth.newHealth > 1000
@@ -43,4 +29,40 @@ function createCharacters(){
 };
 console.log(createCharacters());
 
+
+/*Bài 2: Tạo hàm printLeaderboard:
+    - Nhận vào tham số: players là mảng các object: [{name: "Mario", score: 1000},...]
+    - Sắp xếp mảng người chơi theo thứ tự score từ cao đến thấp
+    -In ra bảng xếp hạng, lưu ý với 3 giá trị 1,2,3 hãy thêm huy chương phía trước */
+
+    //Step1: Khai báo mảng
+const players = [
+    { name: "Mario", score: 1908 },
+    { name: "Gao", score: 1782 },
+    { name: "Lua", score: 1995 },
+    { name: "Sky", score: 1729 },
+    { name: "Moon", score: 1162 }
+];
+
+//Step2: Viết hàm nhận mảng làm tham số:
+function printLeaderboard(players) {
+    const bangXepHang = players.sort((a, b) => b.score - a.score);
+    return bangXepHang;
+};
+const kqua = printLeaderboard(players);
+kqua.forEach((players,index) => {
+    let huyChuong = "";
+    if(index ===0){
+        huyChuong = "🥇";
+    }
+    if(index === 1){
+        huyChuong = "🥈";
+    }
+    if(index===2){
+        huyChuong = "🥉";
+    }
+    console.log(`${huyChuong} ${index + 1}. ${players.name}, ${players.score}`);
+    
+});
+printLeaderboard(players);
 
